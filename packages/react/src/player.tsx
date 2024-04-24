@@ -154,6 +154,10 @@ export class Player extends React.Component<Options, PlayerState> implements IPl
     }
 
     componentDidMount() {
+        if (typeof window !== "undefined") {
+            return
+        }
+
         if (!this._root) {
             this._root = this._ref?.current!.attachShadow({
                 mode: "open"
